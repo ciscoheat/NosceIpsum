@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Diagnostics;
+using System.Threading;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +26,9 @@ namespace NosceIpsum
         {
             _popupTimer = new Timer(GetPopupInterval());
             _closeTimer = new Timer(Settings.Default.PopupDisplaySec * 1000);
+
+            if(!String.IsNullOrEmpty(Settings.Default.Language))
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Language);
 
             InitializeComponent();
         }
@@ -117,7 +122,7 @@ namespace NosceIpsum
         public string RandomWisdom(object currentContent)
         {
             var r = new Random();
-            var wisdom = Settings.Default.Wisdom.Split(';');
+            var wisdom = Properties.Resources.Wisdoms.Split(';');
             string output;
 
             do

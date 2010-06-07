@@ -43,11 +43,10 @@ namespace NosceIpsum.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Känn dig själv;Var medveten;Betrakta dina tankar;Tillbaks till nuet;Betrakta tänk" +
-            "aren;Bryt tankarnas mönster")]
-        public string Wisdom {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Language {
             get {
-                return ((string)(this["Wisdom"]));
+                return ((string)(this["Language"]));
             }
         }
     }
