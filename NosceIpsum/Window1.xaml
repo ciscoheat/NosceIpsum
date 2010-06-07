@@ -1,0 +1,33 @@
+﻿<Window x:Class="NosceIpsum.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:NosceIpsum="clr-namespace:NosceIpsum" Title="Nosce Ipsum" AllowsTransparency="True" SizeToContent="WidthAndHeight" HorizontalAlignment="Center" HorizontalContentAlignment="Center" WindowStyle="None" Topmost="True" ShowActivated="False" Focusable="False" Icon="/NosceIpsum;component/yinyang.ico" Background="Transparent" Name="Win" Opacity="0" Visibility="Hidden" Initialized="Window_Loaded">
+    <Border Name="Border" CornerRadius="8,8,8,8" BorderThickness="0" Grid.IsSharedSizeScope="False" Background="YellowGreen" Opacity="1" MouseLeftButtonDown="Border1MouseLeftButtonDown" MinHeight="50" MinWidth="100">
+        <Label Name="Text" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="17" Background="Transparent" Opacity="1" MouseDoubleClick="Text_MouseDoubleClick" Padding="12"></Label>
+    </Border>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.TextInput">
+            <BeginStoryboard>
+                <Storyboard Name="FormFade">
+                    <DoubleAnimation  Name="FormFadeAnimation"
+                                            Storyboard.TargetName="Win"
+                                            Storyboard.TargetProperty="(Window.Opacity)"
+                                            From="0.0" To="0.73" Duration="0:0:0.5"
+                                            AutoReverse="False" RepeatBehavior="1x"
+                                         />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Window.Unloaded">
+            <BeginStoryboard>
+                <Storyboard Name="FormFadeOut">
+                    <DoubleAnimation  Name="FormFadeOutAnimation"
+                                            Storyboard.TargetName="Win"
+                                            Storyboard.TargetProperty="(Window.Opacity)"
+                                            From="0.73" To="0.0" Duration="0:0:0.5"
+                                            AutoReverse="False" RepeatBehavior="1x"
+                                         />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+</Window>
