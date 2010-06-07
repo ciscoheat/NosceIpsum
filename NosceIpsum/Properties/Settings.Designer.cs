@@ -25,10 +25,10 @@ namespace NosceIpsum.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1-3")]
-        public string PopupIntervalMin {
+        [global::System.Configuration.DefaultSettingValueAttribute("40-180")]
+        public string PopupIntervalSec {
             get {
-                return ((string)(this["PopupIntervalMin"]));
+                return ((string)(this["PopupIntervalSec"]));
             }
         }
         

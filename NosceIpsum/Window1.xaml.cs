@@ -56,7 +56,7 @@ namespace NosceIpsum
 
         private static int GetPopupInterval()
         {
-            var interval = Settings.Default.PopupIntervalMin.Split('-').Select(x => int.Parse(x));
+            var interval = Settings.Default.PopupIntervalSec.Split('-').Select(x => int.Parse(x));
             int output;
 
             if (interval.Count() == 1)
@@ -67,7 +67,7 @@ namespace NosceIpsum
                 output = r.Next(interval.First(), interval.Last() + 1);
             }
 
-            return output * 1000 * (Debugger.IsAttached ? 1 : 60);
+            return (Debugger.IsAttached ? 5 : output) * 1000;
         }
 
         void PopupTimerElapsed(object sender, ElapsedEventArgs e)
